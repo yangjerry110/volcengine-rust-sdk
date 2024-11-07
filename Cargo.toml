@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "volcengine rust sdk"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/yangjerry110/volcengine-rust-sdk"
 
 [dependencies]
 volcengine-sdk-protobuf = "0.1.0"
