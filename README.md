@@ -42,7 +42,7 @@ use volcengine_rust_sdk::volcengine::credentials::credentials;
 use volcengine_rust_sdk::volcengine::session::session;
 use volcengine_rust_sdk::volcengine::error::error;
 
-async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp, error::Error> {
+async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp, error::Error> {  
     // 1. 配置认证信息
     let access_key_id = ""; // 这里填入实际的 Access Key ID
     let secret_access_key = ""; // 这里填入实际的 Secret Access Key
