@@ -2,7 +2,7 @@
  * @Author: Jerry.Yang
  * @Date: 2025-02-20 17:45:24
  * @LastEditors: Jerry.Yang
- * @LastEditTime: 2025-02-20 19:10:35
+ * @LastEditTime: 2025-02-20 19:11:51
  * @Description: readme
 -->
 
@@ -42,6 +42,7 @@ use volcengine_rust_sdk::volcengine::config;
 use volcengine_rust_sdk::volcengine::credentials::credentials;
 use volcengine_rust_sdk::volcengine::session::session;
 use volcengine_rust_sdk::volcengine::error::error::Error;
+use volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesReq;
 use volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp;
 
 async fn ecs_describe_instances() -> Result<DescribeInstancesResp, Error> {
@@ -64,7 +65,7 @@ async fn ecs_describe_instances() -> Result<DescribeInstancesResp, Error> {
     let ecs = ecs::Ecs::new_ecs(session)?;
 
     // 5. 构建请求
-    let mut request = volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesReq();
+    let mut request = DescribeInstancesReq::default();
 
     // 6. 执行查询
     let result = ecs.new_describe_instances(request).await?;
