@@ -2,7 +2,7 @@
  * @Author: Jerry.Yang
  * @Date: 2025-02-20 17:45:24
  * @LastEditors: Jerry.Yang
- * @LastEditTime: 2025-02-20 19:01:23
+ * @LastEditTime: 2025-02-20 19:08:30
  * @Description: readme
 -->
 
@@ -26,7 +26,7 @@
 3. **创建会话**：使用 `Session::builder()` 创建会话对象，并传入配置。
 4. **创建 Ecs 服务**：使用 `Ecs::new_ecs()` 创建 Ecs 服务对象。
 5. **构建请求**：创建一个 `DescribeInstancesReq` 请求对象。
-6. **执行查询**：调用 `ecs.new_describe_instances(request).await` 异步方法查询 Redis 实例。
+6. **执行查询**：调用 `ecs.new_describe_instances(request).await` 异步方法查询 Ecs 实例。
 
 ---
 
@@ -35,14 +35,16 @@
 要运行测试，请确保已正确配置 `access_key_id` 和 `secret_access_key`，然后在项目根目录下运行以下命令：
 
 ```rust
+use std::result::Result;
 use volcengine_rust_sdk::service::ecs;
 use volcengine_rust_sdk::service::ecs::EcsService;
 use volcengine_rust_sdk::volcengine::config;
 use volcengine_rust_sdk::volcengine::credentials::credentials;
 use volcengine_rust_sdk::volcengine::session::session;
-use volcengine_rust_sdk::volcengine::error::error;
+use volcengine_rust_sdk::volcengine::error::error::Error;
+use volcengine_sdk_protobuf::protobuf::ecs_instance;
 
-async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp, error::Error> {   
+async fn ecs_describe_instances() -> Result<ecs_instance::DescribeInstancesResp, Error> {  
     // 1. 配置认证信息
     let access_key_id = ""; // 这里填入实际的 Access Key ID
     let secret_access_key = ""; // 这里填入实际的 Secret Access Key
