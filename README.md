@@ -2,10 +2,11 @@
  * @Author: Jerry.Yang
  * @Date: 2025-02-20 17:45:24
  * @LastEditors: Jerry.Yang
- * @LastEditTime: 2025-02-20 18:53:22
+ * @LastEditTime: 2025-02-20 19:01:23
  * @Description: readme
 -->
 
+# volcengine-rust-sdk
 ---
 
 ## 依赖
@@ -34,7 +35,7 @@
 
 要运行测试，请确保已正确配置 `access_key_id` 和 `secret_access_key`，然后在项目根目录下运行以下命令：
 
-```bash
+```rust
 use volcengine_rust_sdk::service::ecs;
 use volcengine_rust_sdk::service::ecs::EcsService;
 use volcengine_rust_sdk::volcengine::config;
@@ -42,7 +43,7 @@ use volcengine_rust_sdk::volcengine::credentials::credentials;
 use volcengine_rust_sdk::volcengine::session::session;
 use volcengine_rust_sdk::volcengine::error::error;
 
-async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp, error::Error> {
+async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp, error::Error> {   
     // 1. 配置认证信息
     let access_key_id = ""; // 这里填入实际的 Access Key ID
     let secret_access_key = ""; // 这里填入实际的 Secret Access Key
@@ -71,7 +72,6 @@ async fn ecs_describe_instances() -> std::result::Result<volcengine_sdk_protobuf
     return Ok(result)
 }
 
-```
 
 
-# volcengine-rust-sdk
+
