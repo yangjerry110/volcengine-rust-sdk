@@ -2,7 +2,7 @@
  * @Author: Jerry.Yang
  * @Date: 2025-02-20 17:45:24
  * @LastEditors: Jerry.Yang
- * @LastEditTime: 2025-02-20 19:11:51
+ * @LastEditTime: 2025-02-20 19:13:58
  * @Description: readme
 -->
 
@@ -50,27 +50,29 @@ async fn ecs_describe_instances() -> Result<DescribeInstancesResp, Error> {
     let access_key_id = ""; // 这里填入实际的 Access Key ID
     let secret_access_key = ""; // 这里填入实际的 Secret Access Key
     let region_id = ""; // 这里填入实际的 Region ID
+
+    // 2. 创建 `Credentials` 对象
     let credentials = credentials::Credentials::new(access_key_id, secret_access_key);
 
-    // 2. 创建配置
+    // 3. 创建配置
     let config = config::Config::builder()
         .with_region(&region_id)
         .with_credentials(credentials)
         .build()?;
 
-    // 3. 创建会话
+    // 4. 创建会话
     let session = session::Session::builder().with_config(config).build()?;
 
-    // 4. 创建 ecs 服务
+    // 5. 创建 ecs 服务
     let ecs = ecs::Ecs::new_ecs(session)?;
 
-    // 5. 构建请求
+    // 6. 构建请求体
     let mut request = DescribeInstancesReq::default();
 
-    // 6. 执行查询
+    // 7. 执行请求
     let result = ecs.new_describe_instances(request).await?;
     
-    // 7.返回
+    // 8. 返回
     return Ok(result)
 }
 
