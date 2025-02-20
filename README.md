@@ -2,7 +2,7 @@
  * @Author: Jerry.Yang
  * @Date: 2025-02-20 17:45:24
  * @LastEditors: Jerry.Yang
- * @LastEditTime: 2025-02-20 19:08:30
+ * @LastEditTime: 2025-02-20 19:10:35
  * @Description: readme
 -->
 
@@ -41,10 +41,10 @@ use volcengine_rust_sdk::service::ecs::EcsService;
 use volcengine_rust_sdk::volcengine::config;
 use volcengine_rust_sdk::volcengine::credentials::credentials;
 use volcengine_rust_sdk::volcengine::session::session;
-use volcengine_rust_sdk::volcengine::error::error;
-use volcengine_sdk_protobuf::protobuf::ecs_instance;
+use volcengine_rust_sdk::volcengine::error::error::Error;
+use volcengine_sdk_protobuf::protobuf::ecs_instance::DescribeInstancesResp;
 
-async fn ecs_describe_instances() -> Result<ecs_instance::DescribeInstancesResp, error::Error> {  
+async fn ecs_describe_instances() -> Result<DescribeInstancesResp, Error> {
     // 1. 配置认证信息
     let access_key_id = ""; // 这里填入实际的 Access Key ID
     let secret_access_key = ""; // 这里填入实际的 Secret Access Key
